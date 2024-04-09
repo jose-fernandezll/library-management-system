@@ -5,7 +5,7 @@ RSpec.describe Book, type: :model do
     subject { build(:book) }
 
     it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:autor) }
+    it { should validate_presence_of(:author) }
     it { should validate_presence_of(:publication_year) }
     it { should validate_presence_of(:isbn) }
 
