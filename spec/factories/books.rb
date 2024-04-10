@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :book do
-    title { 'Las formas del querer' }
-    author { 'INES MARTIN RODRIGO' }
-    publication_year { 2022 }
+    title { Faker::Book.title }
+    author { Faker::Book.author }
+    publication_year { Faker::Stripe.year}
     state { 'disponible' }
-    isbn { '9788423360895' }
+    isbn { Faker::Number.number(digits: 13) }
   end
 end

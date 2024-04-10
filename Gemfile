@@ -54,9 +54,12 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'factory_bot_rails'
 end
 group :test do
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -71,4 +74,3 @@ group :development do
 end
 
 
-gem "factory_bot", "~> 6.4"

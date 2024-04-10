@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'John' }
-    last_name { 'Doe' }
-    email { 'john@email_provider.com' }
-    cellphone { '1234567890' }
-    password { '123456789' }
-    address { 'cll15#123' }
+    name { Faker::Name.name }
+    last_name { Faker::Name.last_name }
+    email { Faker::Internet.email }
+    cellphone { Faker::PhoneNumber.phone_number_with_country_code }
+    password { Faker::Internet.password(min_length: 8) }
+    address { Faker::Address.full_address }
   end
 end

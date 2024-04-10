@@ -1,0 +1,8 @@
+<h1>All Books here:</h1>
+<% @books.each do |book| %>
+  <div class = 'container-fluid shadow-sm p-3 mb-5 bg-body-tertiary rounded'>
+    <h3 class = 'align-baseline'> <%= book.title %> </h3>
+    <p class = 'p-4'> <%= book.author %> </p>
+    <%# link_to 'Read More', post_path(post), :class => 'btn btn-default'  %>
+  </div>
+<% end %>

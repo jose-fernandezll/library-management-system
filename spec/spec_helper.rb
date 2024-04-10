@@ -14,6 +14,7 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+require "factory_bot_rails"
 SimpleCov.start
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -97,4 +98,9 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+
+
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
 end
