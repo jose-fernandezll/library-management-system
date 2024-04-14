@@ -1,0 +1,12 @@
+
+<h1>Title: <%= @book.title %> </h1>
+<p>Author: <%= @book.author %> </p>
+<p>Publication Year: <%= @book.publication_year %> </p>
+<p>State: <%= @book.state %> </p>
+<p>Isbn: <%= @book.isbn %> </p>
+<hr>
+<%= link_to 'Edit', edit_book_path(@book), :class => 'btn btn-outline-secondary'  %>
+<%= link_to 'Destroy', book_path(@book),
+                                        data: { "turbo-method": :delete,
+                                        turbo_confirm: ('Are you sure?')},
+                                        :class => 'btn btn-danger'  %>

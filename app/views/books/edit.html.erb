@@ -1,0 +1,31 @@
+<%= form_with model: @book, method: :patch, data: { turbo: false }  do |f| %>
+  <% if @book.errors.any? %>
+    <% @book.errors.full_messages.each do |msg| %>
+      <div class = 'alert alert-danger'> <%= msg %> </div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field(:author, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :publication_year %><br>
+    <%= f.text_field(:publication_year, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.select :state, [['Disponible'], ['Reservado']], { class: 'tu-clase-css' } %>
+
+  </p>
+  <p>
+    <%= f.label :isbn %><br>
+    <%= f.text_field(:isbn, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.submit(:class => 'btn btn-primary')%>
+  </p>
+<% end %>

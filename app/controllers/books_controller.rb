@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   def show; end
 
   def new
-    Book.new
+    @book = Book.new
   end
 
   def edit; end
