@@ -11,5 +11,7 @@ RSpec.describe Book, type: :model do
 
     it { should validate_uniqueness_of(:isbn).case_insensitive }
     it { is_expected.to be_valid }
+
+    it { should have_many(:loans) }
   end
 end

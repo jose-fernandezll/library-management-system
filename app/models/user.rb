@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :email, presence: true, uniqueness: true
 
+  has_many :loans
+  has_many :books, through: :loans
+
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 end
