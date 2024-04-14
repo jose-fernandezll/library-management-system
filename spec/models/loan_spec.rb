@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Loan, type: :model do
-
   describe 'validations' do
     subject { build(:loan) }
 

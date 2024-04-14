@@ -2,7 +2,7 @@
 
 # Controller Books
 class BooksController < ApplicationController
-  before_action :find_book, only: %i[show edit update destroy]
+  before_action :find_book, only: %i[show edit update destroy reserve]
   def index
     return @books = search_books(params[:search]) if params[:search]
 
@@ -35,6 +35,17 @@ class BooksController < ApplicationController
     @book.destroy
 
     redirect_to book_path
+  end
+
+  def reserve
+    return redirect_to @book, notice: 'Este Libro ya fue Reservado Por Otra Persona' if @book.state.eql?('Reservado')
+
+    @loan = Loan.new(user: current_user, book: @book, start_date: Date.today, end_date: Date.today + 1.week)
+
+    return redirect_to @book, notice: 'No se pudo reservar el libro.' unless @loan.save
+
+    @book.update(state: 'Reservado')
+    redirect_to @book, notice: 'Libro reservado con éxito.'
   end
 
   private
