@@ -1,31 +1,35 @@
-<%= form_with model: @book, method: :patch, data: { turbo: false }  do |f| %>
-  <% if @book.errors.any? %>
-    <% @book.errors.full_messages.each do |msg| %>
-      <div class = 'alert alert-danger'> <%= msg %> </div>
+<h1 class="text-new"> Edit Book </h1>
+<div class="container-fluid h-100 d-flex justify-content-center align-items-center flex-column">
+  <div class="container-edit-book mx-2 bg-body-tertiary rounded">
+    <%= form_with model: @book, method: :patch, data: { turbo: false }, :class => 'form-edit' do |f| %>
+      <% if @book.errors.any? %>
+        <% @book.errors.full_messages.each do |msg| %>
+          <div class = 'alert alert-danger'> <%= msg %> </div>
+        <% end %>
+      <% end %>
+      <p>
+        <%= f.label :title, {:class => 'text-edit'}%>:<br>
+        <%= f.text_field(:title, {:class => 'form-control'}) %>
+      </p>
+      <p>
+        <%= f.label :author, {:class => 'text-edit'}%>:<br>
+        <%= f.text_field(:author, {:class => 'form-control'}) %>
+      </p>
+      <p>
+        <%= f.label :publication_year, {:class => 'text-edit'} %>:<br>
+        <%= f.text_field(:publication_year, {:class => 'form-control'}) %>
+      </p>
+      <p>
+        <p>State: </p>
+        <%= f.select :state, [['Disponible'], ['Reservado']], { class: 'tu-clase-css' } %>
+      </p>
+      <p>
+        <%= f.label :isbn,  {:class => 'text-edit'} %>:<br>
+        <%= f.text_field(:isbn, {:class => 'form-control'}) %>
+      </p>
+      <p>
+        <%= f.submit(:class => 'btn btn-primary')%>
+      </p>
     <% end %>
-  <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field(:title, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.label :author %><br>
-    <%= f.text_field(:author, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.label :publication_year %><br>
-    <%= f.text_field(:publication_year, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.select :state, [['Disponible'], ['Reservado']], { class: 'tu-clase-css' } %>
-
-  </p>
-  <p>
-    <%= f.label :isbn %><br>
-    <%= f.text_field(:isbn, {:class => 'form-control'}) %>
-  </p>
-
-  <p>
-    <%= f.submit(:class => 'btn btn-primary')%>
-  </p>
-<% end %>
+  </div>
+</div>

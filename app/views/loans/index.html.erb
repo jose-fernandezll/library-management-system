@@ -1,0 +1,13 @@
+<h1>All Loans here:</h1>
+<div class="vh-100">
+  <div class="container-loans container-fluid d-flex">
+    <% @loans.each do |loan| %>
+      <div class = 'm-2 bg-body-tertiary rounded'>
+        <p>Book: <%= loan.book.title %></p>
+        <p>Start Date: <%= loan.start_date %></p>
+        <p>End Date: <%= loan.end_date %></p>
+        <p>User: <%= loan.user.name %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

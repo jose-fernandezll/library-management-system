@@ -32,9 +32,12 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    # solucion temporanea
+    @loan = @book.loans[0]
+    @loan.destroy unless @loan.nil?
     @book.destroy
 
-    redirect_to book_path
+    redirect_to :books
   end
 
   def reserve

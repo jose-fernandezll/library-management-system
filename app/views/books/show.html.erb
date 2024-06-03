@@ -1,19 +1,20 @@
-
-<h1>Title: <%= @book.title %> </h1>
-<p>Author: <%= @book.author %> </p>
-<p>Publication Year: <%= @book.publication_year %> </p>
-<p>State: <%= @book.state %> </p>
-<p>Isbn: <%= @book.isbn %> </p>
-<hr>
-<%= link_to 'Edit', edit_book_path(@book), :class => 'btn btn-outline-secondary'  %>
-
-<% if current_user %>
-  <%= button_to 'Reservar', reserve_book_path(@book), method: :post %>
-<% else %>
-  <%= link_to 'Iniciar sesión para reservar', new_user_session_path %>
-<% end %>
-
-<%= link_to 'Destroy', book_path(@book),
+<div class="h-100 d-flex justify-content-center align-items-center flex-column">
+  <div class = "container-books-info  mx-2 bg-body-tertiary rounded">
+    <h1><b>Title:</b>  <%= @book.title %> </h1>
+    <p><b>Author:</b> <%= @book.author %> </p>
+    <p><b>Publication Year:</b> <%= @book.publication_year %> </p>
+    <p><b>State:</b>> <%= @book.state %> </p>
+    <p><b>Isbn:</b> <%= @book.isbn %> </p>
+    <hr>
+    <%= link_to 'Edit', edit_book_path(@book), :class => 'btn btn-outline-secondary'  %>
+    <% if current_user %>
+      <%= button_to 'Reservar', reserve_book_path(@book), method: :post %>
+    <% else %>
+      <%= link_to 'Iniciar sesión para reservar', new_user_session_path %>
+    <% end %>
+    <%= link_to 'Destroy', book_path(@book),
                                         data: { "turbo-method": :delete,
                                         turbo_confirm: ('Are you sure?')},
                                         :class => 'btn btn-danger'  %>
+  </div>
+</div>
